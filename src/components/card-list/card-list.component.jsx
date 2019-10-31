@@ -1,11 +1,29 @@
 import React from 'react';
 
+import './card-list.style.css'
+import Card from '../card/card.component'
+
+
 
 export const CardList = props => {
-    console.log(props);
+   if(props.monsters.length >0){
     return (
-        <div>
-            <h1>Hello {props.name}</h1>
-        </div>
+        <div className="card-list">
+            {
+              props.monsters.map(monster => (
+            <div>
+                <Card key={monster.id} monster={monster} />
+            </div> ))
+             
+             } 
+        </div> 
     )
-}
+   }else {
+    return (
+        <div >
+           <h1>No hay elementos</h1>
+        </div> 
+    ) 
+   }
+    
+} 
